@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Configuration
+###############
+export WEBENGINE_MAXMEMORY=1000
+export WEBENGINE_PORT=28000
 
-printenv
+
+# Replace maximum amount of memory used by the jvm
+##################################################
+sed -i -e "s/-Xmx3000m/-Xmx${WEBENGINE_MAXMEMORY}m/g" /home/WebEngine/tomcat/bin/setenv.sh
+
+# Replace used port
+##################################################
+sed -i -e "s/port=\"8080\"/port=\"${WEBENGINE_PORT}\"/g" /home/WebEngine/tomcat/conf/server.xml
+sed -i -e "s/config\.peer\.port=\"8080\"/config\.peer\.port=\"${WEBENGINE_PORT}\"/g" /home/WebEngine/tomcat/wtpwebapps/webengine/WEB-INF/classes/com/webengine/application.properties
+
+
+
+
+
 
