@@ -1,3 +1,4 @@
-/home/web-config.sh
-source /home/Webengine/tomcat/setenv.sh
-/home/Webengine/tomcat/startup.sh
+#!/bin/sh
+/home/webengine-config.sh
+source /home/WebEngine/tomcat/bin/setenv.sh
+/home/WebEngine/tomcat/bin/startup.sh
