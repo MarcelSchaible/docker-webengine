@@ -36,13 +36,12 @@ RUN chmod +x webengine-config.sh
 COPY start-webengine.sh start-webengine.sh
 RUN chmod +x start-webengine.sh
 
+COPY stop-webengine.sh stop-webengine.sh
+RUN chmod +x stop-webengine.sh
+
 COPY logs-webengine.sh logs-webengine.sh
 RUN chmod +x logs-webengine.sh
 
 COPY set-timezone.sh set-timezone.sh
 RUN chmod +x set-timezone.sh
-xRUN ./set-timezone.sh
-
-#COPY <filename>.jar /<filename>.jar
-#ENTRYPOINT ["/bin/bash" , "-c", "/home/entrypoint.sh"]
-
+RUN ./set-timezone.sh
